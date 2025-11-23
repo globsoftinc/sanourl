@@ -160,6 +160,8 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -216,6 +218,14 @@
                                 <input type="text" id="customCode" placeholder="my-custom-code">
                             </div>
                         </div>
+                        <!-- TURNSTILE WIDGET FOR URL SHORTENER -->
+                        <div class="cf-turnstile" 
+                             data-sitekey="{{ turnstile_site_key }}" 
+                             data-callback="onTurnstileSuccess"
+                             data-theme="light"
+                             style="margin: 1rem 0;">
+                        </div>
+
                         <button class="btn-shorten" id="shortenBtn">
                             <span>Shorten URL</span>
                             <i class="fas fa-arrow-right"></i>
@@ -466,13 +476,25 @@
                         <li><a href="https://globsoft.tech">Cookie Policy</a></li>
                         <li><a href="https://globsoft.tech">Acceptable Use</a></li>
                     </ul>
-                </div><!-- In Footer Section -->
-                <div class="footer-section">
+                </div><div class="footer-section">
                     <h4>Stay Updated</h4>
                     <p>Get the latest updates and news.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="newsletter-input-wrapper">
+                            <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                            <button type="submit" id="newsletterSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- TURNSTILE WIDGET FOR NEWSLETTER (Moved outside input wrapper) -->
+                        <div class="cf-turnstile" 
+                             data-sitekey="{{ turnstile_site_key }}" 
+                             data-callback="onNewsletterTurnstileSuccess"
+                             data-theme="dark"
+                             data-size="compact"
+                             style="margin-top: 0.75rem;">
+                        </div>
                     </form>
                 </div>
             </div>

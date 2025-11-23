@@ -6,10 +6,13 @@ import os
 import string
 import random
 import re
+import requests
 
 load_dotenv()
 
 # Environment variables
+turnstile_secret = os.getenv("TURNSTILE_SECRET_KEY")
+turnstile_site_key = os.getenv("TURNSTILE_SITE_KEY")
 mongo_uri = os.getenv("MONGO_URI")
 
 # MongoDB client
@@ -42,11 +45,27 @@ def generate_short_code(length=6):
         if not urls_collection.find_one({"short_code": short_code}):
             return short_code
 
+def verify_turnstile(token):
+    """Verify Cloudflare Turnstile token"""
+    if not token:
+        return False
+    
+    try:
+        response = requests.post(
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+            data={
+                'secret': turnstile_secret,
+                'response': token
+            },
+            timeout=5
+        )
+        return response.json().get('success', False)
+    except:
+        return False
 
 @app.route("/", methods=['GET'])
 def index():
-    """Landing page for SanoURL"""
-    return render_template('index.html')
+    return render_template('index.html', turnstile_site_key=turnstile_site_key)
 
 
 @app.route("/subscribe", methods=['POST'])
@@ -55,7 +74,11 @@ def subscribe():
     try:
         data = request.get_json()
         email = data.get("email", "").strip().lower()
+        turnstile_token = data.get("turnstile_token", "")
         
+        if not verify_turnstile(turnstile_token):
+            return jsonify({"success": False, "error": "Verification failed"}), 400
+
         if not email:
             return jsonify({"success": False, "error": "Email is required"}), 400
         
@@ -93,7 +116,11 @@ def shorten_url():
         data = request.get_json() if request.is_json else request.form
         original_url = data.get("url")
         custom_code = data.get("custom_code", "").strip()
-        
+        turnstile_token = data.get("turnstile_token", "")
+
+        if not verify_turnstile(turnstile_token):
+            return jsonify({"success": False, "error": "Verification failed"}), 400
+
         if not original_url:
             return jsonify({"success": False, "error": "URL is required"}), 400
         
