@@ -282,3 +282,16 @@ fadeElements.forEach(el => {
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     fadeObserver.observe(el);
 });
+
+let turnstileToken = null;
+
+function onTurnstileSuccess(token) {
+    turnstileToken = token;
+}
+
+// In your fetch request:
+body: JSON.stringify({
+    url: url,
+    custom_code: customCode,
+    turnstile_token: turnstileToken  // Add this
+})
