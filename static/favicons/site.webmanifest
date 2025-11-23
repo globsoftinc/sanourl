@@ -1,0 +1,23 @@
+{
+    "name": "SanoURL - Free URL Shortener Nepal",
+    "short_name": "SanoURL",
+    "description": "Nepal's fastest free URL shortener. Create short links instantly!",
+    "icons": [
+      {
+        "src": "/static/favicons/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/favicons/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#177775",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "portrait-primary"
+  }

@@ -1,1 +1,2 @@
-# Admin Portal for GlobSoft Inc.
+# SanoURL
+Professional URL shortening service.

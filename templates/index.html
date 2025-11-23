@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title -->
+    <title>SanoURL - Free URL Shortener Nepal | Short Link Generator</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicons/favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicons/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicons/site.webmanifest') }}">
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="SanoURL - Free URL Shortener Nepal | Create Short Links Instantly">
+    <meta name="description" content="SanoURL is Nepal's fastest free URL shortener. Create short links instantly, track clicks, and share custom branded URLs. No sign-up required. Perfect for social media, marketing, and sharing long URLs in Nepal.">
+    <meta name="keywords" content="URL shortener Nepal, free link shortener, short URL Nepal, custom short link, URL shortener Nepali, link generator Nepal, short link maker, sano URL, Kathmandu URL shortener, Nepal link shortener, free URL shortener, branded short links, link tracking Nepal, custom URL Nepal, short link generator">
+    <meta name="author" content="GlobSoft Inc.">
+    <meta name="copyright" content="Copyright © 2025 SanoURL by GlobSoft Inc. All rights reserved.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="3 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sanourl.globsoft.tech">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanourl.globsoft.tech">
+    <meta property="og:title" content="SanoURL - Free URL Shortener Nepal | Create Short Links Instantly">
+    <meta property="og:description" content="Nepal's fastest free URL shortener. Create short links instantly, customize your URLs, and share easily on social media. No sign-up required. Start shortening URLs now!">
+    <meta property="og:site_name" content="SanoURL">
+    <meta property="og:image" content="https://sanourl.globsoft.tech/static/images/logoonly.png">
+    <meta property="og:image:secure_url" content="https://sanourl.globsoft.tech/static/images/logoonly.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="SanoURL - Free URL Shortener Nepal">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ne_NP">
+    
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sanourl.globsoft.tech">
+    <meta name="twitter:title" content="SanoURL - Free URL Shortener Nepal">
+    <meta name="twitter:description" content="Create short links instantly with SanoURL. Nepal's fastest free URL shortener with custom codes and click tracking. No sign-up required!">
+    <meta name="twitter:image" content="https://sanourl.globsoft.tech/static/images/logoonly.png">
+    <meta name="twitter:image:alt" content="SanoURL Logo">
+    <meta name="twitter:creator" content="@globsoftinc">
+    <meta name="twitter:site" content="@globsoftinc">
+    
+    <!-- Geo Location Meta Tags (Nepal) -->
+    <meta name="geo.region" content="NP">
+    <meta name="geo.placename" content="Nepal">
+    <meta name="geo.position" content="27.7172;85.3240">
+    <meta name="ICBM" content="27.7172, 85.3240">
+    
+    <!-- Mobile App Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SanoURL">
+    <meta name="application-name" content="SanoURL">
+    <meta name="msapplication-TileColor" content="#177775">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='images/logoonly.png') }}">
+    <meta name="theme-color" content="#177775">
+    
+    <!-- Additional SEO Tags -->
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="coverage" content="Worldwide">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SanoURL",
+      "url": "https://sanourl.globsoft.tech",
+      "logo": "https://sanourl.globsoft.tech/static/images/logoonly.png",
+      "description": "Free URL shortener service in Nepal. Create short links instantly with custom codes and click tracking.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NPR"
+      },
+      "featureList": "URL Shortening, Custom Short Codes, Click Tracking, Free Forever, No Sign-up Required",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "provider": {
+        "@type": "Organization",
+        "name": "GlobSoft Inc.",
+        "url": "https://globsoft.tech",
+        "logo": "https://globsoft.tech/img/mymain.png",
+        "sameAs": [
+          "https://www.facebook.com/globsoftinc",
+          "https://www.instagram.com/globsoftinc",
+          "https://x.com/globsoftinc",
+          "https://www.linkedin.com/company/globsoftinc",
+          "https://youtube.com/@globsoftinc"
+        ]
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nepal"
+      },
+      "inLanguage": ["en", "ne"]
+    }
+    </script>
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SanoURL",
+      "url": "https://sanourl.globsoft.tech",
+      "logo": "https://sanourl.globsoft.tech/static/images/logoonly.png",
+      "description": "Nepal's fastest free URL shortener",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NP"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "url": "https://sanourl.globsoft.tech"
+      }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sanourl.globsoft.tech"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/cover.png') }}" alt="SanoURL Logo" class="logo-icon">
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#about">About</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#about">About</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Shorten Your Links,
+                        <span class="gradient-text">Amplify Your Reach</span>
+                    </h1>
+                    <p class="hero-subtitle">Professional URL shortening service. Create branded short links in seconds.</p>
+                    
+                    <!-- URL Shortener Form -->
+                    <div class="shortener-box">
+                        <div class="input-group">
+                            <i class="fas fa-link input-icon"></i>
+                            <input type="url" id="urlInput" placeholder="Enter your long URL here..." required>
+                        </div>
+                        <div class="custom-code-wrapper">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="customCodeToggle">
+                                <span>Custom short code</span>
+                            </label>
+                            <div class="custom-code-input" id="customCodeInput" style="display: none;">
+                                <input type="text" id="customCode" placeholder="my-custom-code">
+                            </div>
+                        </div>
+                        <button class="btn-shorten" id="shortenBtn">
+                            <span>Shorten URL</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Result Box -->
+                    <div class="result-box" id="resultBox" style="display: none;">
+                        <div class="result-content">
+                            <div class="result-label">Your shortened URL:</div>
+                            <div class="result-url-wrapper">
+                                <input type="text" class="result-url" id="resultUrl" readonly>
+                                <button class="btn-copy" id="copyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <div class="original-url-display">
+                                <small>Original: <a href="#" id="originalUrlLink" target="_blank"></a></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-link"></i>
+                        <p>100K+ URLs Shortened</p>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-rocket"></i>
+                        <p>Instant Generation</p>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-bolt"></i>
+                        <p>Lightning Fast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need for simple and effective URL shortening</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Create shortened URLs in milliseconds with our optimized infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Custom Short Codes</h3>
+                    <p>Create branded, memorable short links with custom codes of your choice.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security with 99.9% uptime guarantee.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices - desktop, tablet, and mobile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Unlimited Links</h3>
+                    <p>No limits on how many URLs you can shorten. Completely free.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>No Expiration</h3>
+                    <p>Your shortened links work forever. No time limits or restrictions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get started in three simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Paste Your URL</h3>
+                        <p>Enter your long URL into the input field above.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Short Link</h3>
+                        <p>Click shorten and receive your custom short URL instantly.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Share Anywhere</h3>
+                        <p>Copy and share your short link anywhere on the web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1000000">0</div>
+                    <div class="stat-label">URLs Shortened</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50000">0</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99.9">0</div>
+                    <div class="stat-label">% Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Why Choose SanoURL?</h2>
+                    <p>SanoURL is a simple, fast, and reliable URL shortening service built for everyone. Whether you're sharing links on social media, in emails, or anywhere else, SanoURL makes your links clean, professional, and easy to remember.</p>
+                    <p>Our service is completely free, with no hidden fees, no sign-up required, and no limitations. Just paste your URL, get your short link, and share it with the world.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>100% Free Forever</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No Sign-up Required</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Custom Short Codes</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Instant Results</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-container">
+                        <img src="{{ url_for('static', filename='images/logoonly.png') }}" alt="SanoURL Logo" class="about-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">SanoURL</span>
+                    </div>
+                    <p class="footer-description">Professional URL shortening service. Fast, simple, and reliable.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/globsoftinc" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/globsoftinc" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/globsoftinc" target="_blank" aria-label="Twitter/X">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/globsoftinc" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://youtube.com/@globsoftinc" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://globsoft.tech">About Us</a></li>
+                        <li><a href="https://globsoft.tech">Contact</a></li>
+                        <li><a href="https://globsoft.tech">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="https://globsoft.tech">Privacy Policy</a></li>
+                        <li><a href="https://globsoft.tech">Terms of Service</a></li>
+                        <li><a href="https://globsoft.tech">Cookie Policy</a></li>
+                        <li><a href="https://globsoft.tech">Acceptable Use</a></li>
+                    </ul>
+                </div><!-- In Footer Section -->
+                <div class="footer-section">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest updates and news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>SanoURL &copy; 2025. All rights reserved. Powered by GlobSoft Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">URL copied to clipboard!</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
