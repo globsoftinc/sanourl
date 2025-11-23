@@ -65,7 +65,8 @@ if (shortenBtn) {
                 },
                 body: JSON.stringify({
                     url: url,
-                    custom_code: customCodeToggle.checked ? customCode.value.trim() : ''
+                    custom_code: customCodeToggle.checked ? customCode.value.trim() : '',
+                    turnstile_token: turnstileToken
                 })
             });
             
@@ -244,7 +245,7 @@ if (newsletterForm) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email: email })
+                body: JSON.stringify({ email: email,turnstile_token: turnstileToken })
             });
             
             const data = await response.json();
@@ -288,10 +289,3 @@ let turnstileToken = null;
 function onTurnstileSuccess(token) {
     turnstileToken = token;
 }
-
-// In your fetch request:
-body: JSON.stringify({
-    url: url,
-    custom_code: customCode,
-    turnstile_token: turnstileToken  // Add this
-})
