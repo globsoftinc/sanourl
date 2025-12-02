@@ -941,11 +941,30 @@ body {
   cursor: not-allowed;
 }
 
-/* Turnstile widget styling */
 .newsletter-form .cf-turnstile {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.newsletter-form .cf-turnstile > div,
+.newsletter-form .cf-turnstile iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+    .newsletter-form .cf-turnstile {
+        transform: scale(0.9);
+        transform-origin: left center;
+    }
+}
+
+@media (max-width: 480px) {
+    .newsletter-form .cf-turnstile {
+        transform: scale(0.85);
+        transform-origin: left center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1220,4 +1239,5 @@ body {
     50% {
         box-shadow: 0 0 0 6px rgba(248, 113, 113, 0);
     }
+
 }
