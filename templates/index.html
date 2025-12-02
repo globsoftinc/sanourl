@@ -169,7 +169,8 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="{{ url_for('static', filename='images/cover.png') }}" alt="SanoURL Logo" class="logo-icon">
+                    <img src="{{ url_for('static', filename='images/logoonly.png') }}" alt="SanoURL Logo" class="logo-icon">
+                    <span class="logo-text">SanoURL</span>
                 </div>
                 <div class="nav-links">
                     <a href="#features">Features</a>
@@ -463,16 +464,16 @@
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="https://globsoft.tech">About Us</a></li>
-                        <li><a href="https://globsoft.tech">Contact</a></li>
-                        <li><a href="https://globsoft.tech">Support</a></li>
+                        <li><a href="https://globsoft.tech/#about">About Us</a></li>
+                        <li><a href="https://globsoft.tech/#contact">Contact</a></li>
+                        <li><a href="https://globsoft.tech/support.html">Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="https://globsoft.tech">Privacy Policy</a></li>
-                        <li><a href="https://globsoft.tech">Terms of Service</a></li>
+                        <li><a href="https://globsoft.tech/privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://globsoft.tech/terms.html">Terms of Service</a></li>
                         <li><a href="https://globsoft.tech">Cookie Policy</a></li>
                         <li><a href="https://globsoft.tech">Acceptable Use</a></li>
                     </ul>
@@ -498,7 +499,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>SanoURL &copy; 2025. All rights reserved. Powered by GlobSoft Inc.</p>
+                <div class="footer__status" id="system-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Loading...</span>
+        </div>
+                <p>SanoURL &copy; <script>document.write(new Date().getFullYear())</script>. All rights reserved</p>
+                <p>Powered by <a href="https://globsoft.tech" target="_blank">Globsoft Inc.</a></p>
             </div>
         </div>
     </footer>

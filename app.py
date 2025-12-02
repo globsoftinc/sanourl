@@ -307,3 +307,6 @@ def internal_error(e):
     """Handle 500 errors"""
     app.logger.error(f"Internal error: {str(e)}")
     return jsonify({"success": False, "error": "Internal server error"}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True,host='192.168.100.34')

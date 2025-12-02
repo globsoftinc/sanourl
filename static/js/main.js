@@ -266,26 +266,31 @@ if (newsletterForm) {
     });
 }
 
-// ===== Add Animation Classes on Scroll =====
-const fadeElements = document.querySelectorAll('.feature-card, .step');
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1 });
-
-fadeElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    fadeObserver.observe(el);
-});
-
 let turnstileToken = null;
 
 function onTurnstileSuccess(token) {
     turnstileToken = token;
 }
+
+// Update system status
+document.addEventListener('DOMContentLoaded', async function() {
+    const statusElement = document.getElementById('system-status');
+    
+    if (statusElement) {
+        const statusText = statusElement.querySelector('.status-text');
+        
+        try {
+            const response = await fetch('https://admin.globsoft.tech/api/system-status');
+            const data = await response.json();
+            
+            statusElement.className = 'footer__status status-' + data.status;
+            statusText.textContent = data.message;
+        } catch (error) {
+            console.warn('Failed to fetch system status from API, using fallback');
+            if (typeof systemStatus !== 'undefined') {
+                statusElement.className = 'footer__status status-' + systemStatus.status;
+                statusText.textContent = systemStatus.message;
+            }
+        }
+    }
+});
